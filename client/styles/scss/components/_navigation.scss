@@ -1,0 +1,47 @@
+///------------------------------------------------
+/// Navigation
+///------------------------------------------------
+header {
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0 $mobile-container-padding;
+
+  @include mq($tablet-mq) {
+    padding: 0 $tablet-container-padding;
+  }
+
+  @include mq($desktop-sm) {
+    padding: 0 $small-laptop-container-padding;
+  }
+
+  @include mq($desktop-lg) {
+    padding: 0 $large-display-container-padding;
+  }
+
+  nav {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      width: 76px;
+    }
+
+    .create-icon-container {
+      background-color: $icon-bg-color;
+      width: 36px;
+      height: 36px;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        height: 16px;
+        width: 16px;
+      }
+    }
+  }
+}
