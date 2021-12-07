@@ -13,6 +13,7 @@ $body-copy-color: rgba(0, 0, 0, 1);
 $icon-bg-color: rgba(0, 0, 0, 1);
 
 // Breakpoints
+$mobile-lg: 540px;
 $tablet-mq: 768px;
 $desktop-sm: 1024px;
 $desktop-lg: 1280px;
@@ -20,3 +21,15 @@ $desktop-lg: 1280px;
 // Border radius
 $card-br: 20px;
 $icon-br: 100%;
+
+// Max-widths
+$max-width: 1235px;
+
+// Colours
+$grey: #ccd4d7;
+$orange: #fec971;
+$peach: #fe9b72;
+$lime: #e3ef8e;
+$blue: #00d4fe;
+$purple: #b593fd;
+$pink: #fbd5fe;

@@ -8,6 +8,16 @@ h1 {
 
   &.main-header {
     margin: 30px 0 20px;
+
+    @include mq($desktop-sm) {
+      margin: 40px 0 30px;
+      font-size: 3rem;
+    }
+
+    @include mq($desktop-lg) {
+      font-size: 4rem;
+      margin: 90px 0 40px;
+    }
   }
 }
 
@@ -20,6 +30,14 @@ h3 {
   @include mq($tablet-mq) {
     font-size: 1.1rem;
   }
+
+  @include mq($desktop-sm) {
+    font-size: 1.2rem;
+  }
+
+  @include mq($desktop-lg) {
+    font-size: 1.45rem;
+  }
 }
 
 p {
@@ -30,5 +48,9 @@ p {
   &.card-date {
     font-weight: 400;
     font-size: 0.85rem;
+
+    @include mq($desktop-sm) {
+      font-size: 0.95rem;
+    }
   }
 }

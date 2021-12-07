@@ -1,11 +1,25 @@
 .card {
-  background-color: #ccd4d7; // temp
+  // background-color: $lime; // temp
   border-radius: $card-br;
   padding: 22px;
   min-height: 215px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @include mq($desktop-sm) {
+    min-height: 240px;
+    cursor: pointer;
+    transition: 0.3s background-color ease;
+
+    // &:hover {
+    //   background-color: darken($color: $lime, $amount: 10);
+    // }
+  }
+
+  @include mq($desktop-lg) {
+    min-height: 290px;
+  }
 
   .card-info-container {
     display: flex;
@@ -20,10 +34,36 @@
       align-items: center;
       justify-content: center;
       border-radius: $icon-br;
+      transition: 0.3s background-color ease;
+      cursor: pointer;
 
       svg {
         width: 18px;
       }
+
+      &:hover {
+        background-color: rgba($icon-bg-color, 0.75);
+      }
+    }
+  }
+}
+
+// Create CSS styling for each bg colour
+$colours: (
+  "lime": $lime,
+  "orange": $orange,
+  "peach": $peach,
+  "blue": $blue,
+  "purple": $purple,
+  "pink": $pink,
+  "grey": $grey,
+);
+
+@each $colour, $code in $colours {
+  .colour-#{$colour} {
+    background-color: $code;
+    &:hover {
+      background-color: darken($color: $code, $amount: 8);
     }
   }
 }

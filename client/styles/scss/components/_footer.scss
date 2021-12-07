@@ -3,6 +3,10 @@ footer {
   height: 60px;
   margin-top: auto;
 
+  @include mq($desktop-sm) {
+    height: 100px;
+  }
+
   .footer-inner {
     display: flex;
     justify-content: center;
@@ -16,6 +20,10 @@ footer {
 
       &:hover {
         color: rgba(0, 0, 0, 1);
+      }
+
+      @include mq($desktop-sm) {
+        font-size: 1.1rem;
       }
     }
   }
