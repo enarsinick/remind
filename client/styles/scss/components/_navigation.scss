@@ -45,15 +45,17 @@ header.nav-header-container {
       justify-content: center;
       align-items: center;
       transition: 0.3s background-color ease;
+      transition: 0.2s transform ease;
       cursor: pointer;
 
-      svg {
-        height: 16px;
-        width: 16px;
+      img {
+        width: 18px;
       }
 
-      &:hover {
-        background-color: rgba($icon-bg-color, 0.75);
+      @include mq($desktop-sm) {
+        &:hover {
+          transform: rotate(90deg);
+        }
       }
     }
   }
