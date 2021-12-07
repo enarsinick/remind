@@ -9,6 +9,7 @@ header.nav-header-container {
 
   @include mq($tablet-mq) {
     padding: 0 $tablet-container-padding;
+    height: 80px;
   }
 
   @include mq($desktop-sm) {
@@ -27,6 +28,10 @@ header.nav-header-container {
 
     .logo {
       width: 76px;
+
+      @include mq($tablet-mq) {
+        width: 85px;
+      }
     }
 
     .create-icon-container {
