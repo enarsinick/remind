@@ -1,0 +1,21 @@
+footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  height: 60px;
+
+  .footer-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    a {
+      color: rgba(0, 0, 0, 0.5);
+      text-decoration: none;
+      transition: 0.4s color ease;
+
+      &:hover {
+        color: rgba(0, 0, 0, 1);
+      }
+    }
+  }
+}
