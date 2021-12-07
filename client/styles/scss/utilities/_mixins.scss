@@ -1,0 +1,6 @@
+// Media Query Mixin
+@mixin mq($mq) {
+  @media (min-width: $mq) {
+    @content;
+  }
+}

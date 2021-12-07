@@ -1,0 +1,29 @@
+.card {
+  background-color: #ccd4d7; // temp
+  border-radius: $card-br;
+  padding: 22px;
+  min-height: 215px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .card-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .card-options-container {
+      background-color: $icon-bg-color;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: $icon-br;
+
+      svg {
+        width: 18px;
+      }
+    }
+  }
+}
