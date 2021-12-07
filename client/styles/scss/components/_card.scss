@@ -35,14 +35,17 @@
       justify-content: center;
       border-radius: $icon-br;
       transition: 0.3s background-color ease;
+      transition: 0.25s transform ease;
       cursor: pointer;
 
-      svg {
-        width: 18px;
+      img {
+        width: 20px;
       }
 
-      &:hover {
-        background-color: rgba($icon-bg-color, 0.75);
+      @include mq($desktop-sm) {
+        &:hover {
+          transform: rotate(25deg);
+        }
       }
     }
   }
