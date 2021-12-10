@@ -20,7 +20,7 @@
     <!-- Main Content -->
     <main>
       <!-- View Model window overlay -->
-      <div class="model">
+      <!-- <div class="model">
         <div class="model-wrapper">
           <div class="model-wrapper-window">
             <div class="model-wrapper-window-header">
@@ -52,7 +52,51 @@
             </div>
           </div>
         </div>
+      </div> -->
+
+      <!-- Edit/Create Model Window -->
+      <div class="create-model">
+        <div class="create-model-wrapper">
+          <div class="create-model-wrapper-window">
+            <div class="create-model-wrapper-window-header">
+              <h3>Add a note</h3>
+              <div>
+                <img src="./src/delete.svg" />
+                <img src="./src/exit.svg" />
+              </div>
+            </div>
+            <div class="create-model-wrapper-window-form">
+              <form>
+                <fieldset>
+                  <label>Title</label>
+                  <input type="text" placeholder="Write your title here" />
+                </fieldset>
+                <fieldset>
+                  <label>Description</label>
+                  <textarea
+                    placeholder="Write your description here"
+                  ></textarea>
+                </fieldset>
+                <fieldset>
+                  <label>Colour</label>
+                  <div class="colour-button orange"></div>
+                  <div class="colour-button peach"></div>
+                  <div class="colour-button lime"></div>
+                  <div class="colour-button blue"></div>
+                  <div class="colour-button purple"></div>
+                  <div class="colour-button pink"></div>
+                  <div class="colour-button grey"></div>
+                </fieldset>
+                <div class="model-button">
+                  <p>Edit</p>
+                  <img src="src/arrow.svg" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
+
       <h1 class="main-header">Notes</h1>
       <section class="grid-container">
         <article class="card grid-item colour-orange">

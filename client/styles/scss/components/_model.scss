@@ -16,14 +16,14 @@
   &-wrapper {
     height: 100%;
     width: 100%;
-    padding: 30px;
+    padding: $mobile-container-padding;
     display: flex;
     justify-content: center;
     align-items: center;
 
     &-window {
+      width: 100%;
       max-width: 500px;
-      background-color: $orange;
       padding: 20px 22px 25px 22px;
       border-radius: 15px;
 
@@ -58,6 +58,161 @@
 
         @include mq($mobile-lg) {
           margin: 25px 0;
+        }
+      }
+    }
+  }
+}
+
+///-----------------------------------------------------------------------------///
+/// Model Window - Create/Edit Notes                                            ///
+///-----------------------------------------------------------------------------///
+
+.create-model {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+  z-index: 2;
+
+  &-wrapper {
+    height: 100%;
+    width: 100%;
+    padding: $mobile-container-padding;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-window {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 15px;
+      background-color: white;
+
+      &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 78px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        padding: 0 22px;
+
+        img {
+          background-color: rgba(0, 0, 0, 0.05);
+          padding: 10px;
+          border-radius: 100%;
+          width: 35px;
+          height: 35px;
+          margin-left: 5px;
+        }
+      }
+
+      &-form {
+        padding: 25px;
+
+        fieldset {
+          display: flex;
+          flex-direction: column;
+          margin: 25px 0;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+
+          &:last-of-type {
+            flex-direction: row;
+            align-items: center;
+          }
+
+          label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: "Readex Pro", sans-serif;
+            margin-right: 15px;
+          }
+
+          input {
+            font-size: 0.875rem;
+            font-weight: 300;
+            font-family: "Readex Pro", sans-serif;
+            color: rgba(0, 0, 0, 0.7);
+            border: none;
+            background-color: #f8f8f8;
+            width: 100%;
+            height: 48px;
+            border-radius: 10px;
+            padding: 0 13px;
+            margin-top: 12px;
+
+            &::placeholder {
+              font-size: 0.875rem;
+              font-weight: 300;
+              font-family: "Readex Pro", sans-serif;
+              color: rgba(0, 0, 0, 0.4);
+            }
+          }
+
+          textarea {
+            border: none;
+            min-height: 210px;
+            width: 100%;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            padding: 13px;
+            resize: none;
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 0.875rem;
+            font-weight: 300;
+            font-family: "Readex Pro", sans-serif;
+            margin-top: 12px;
+
+            &::placeholder {
+              font-size: 0.875rem;
+              font-weight: 300;
+              font-family: "Readex Pro", sans-serif;
+              color: rgba(0, 0, 0, 0.4);
+            }
+          }
+
+          .colour-button {
+            height: 24px;
+            width: 24px;
+            background-color: red;
+            border-radius: 6px;
+            margin-right: 8px;
+
+            &.orange {
+              background-color: $orange;
+            }
+
+            &.peach {
+              background-color: $peach;
+            }
+
+            &.lime {
+              background-color: $lime;
+            }
+
+            &.blue {
+              background-color: $blue;
+            }
+
+            &.purple {
+              background-color: $purple;
+            }
+
+            &.pink {
+              background-color: $pink;
+            }
+
+            &.grey {
+              background-color: $grey;
+            }
+          }
         }
       }
     }
