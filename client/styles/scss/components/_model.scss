@@ -1,0 +1,65 @@
+///-----------------------------------------------------------------------------///
+/// Model Window                                                                   ///
+///-----------------------------------------------------------------------------///
+
+.model {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+  z-index: 2;
+
+  &-wrapper {
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-window {
+      max-width: 500px;
+      background-color: $orange;
+      padding: 20px 22px 25px 22px;
+      border-radius: 15px;
+
+      @include mq($mobile-lg) {
+        padding: 30px;
+      }
+
+      &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+          background-color: rgba(0, 0, 0, 0.05);
+          padding: 10px;
+          border-radius: 100%;
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      &-title {
+        margin: 15px 0 0 0;
+
+        @include mq($mobile-lg) {
+          max-width: 85%;
+        }
+      }
+
+      &-description p {
+        margin: 15px 0 20px 0;
+
+        @include mq($mobile-lg) {
+          margin: 20px 0;
+        }
+      }
+    }
+  }
+}
