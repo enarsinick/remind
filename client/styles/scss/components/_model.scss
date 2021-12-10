@@ -101,6 +101,10 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         padding: 0 22px;
 
+        @include mq($desktop-sm) {
+          height: 82px;
+        }
+
         img {
           background-color: rgba(0, 0, 0, 0.05);
           padding: 10px;
@@ -108,6 +112,17 @@
           width: 35px;
           height: 35px;
           margin-left: 5px;
+          cursor: pointer;
+          transition: 0.3s background-color ease;
+
+          @include mq($desktop-sm) {
+            width: 38px;
+            height: 38px;
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.1);
+            }
+          }
         }
       }
 
@@ -133,13 +148,17 @@
             font-weight: 500;
             font-family: "Readex Pro", sans-serif;
             margin-right: 15px;
+
+            @include mq($desktop-sm) {
+              font-size: 1rem;
+            }
           }
 
           input {
             font-size: 0.875rem;
             font-weight: 300;
             font-family: "Readex Pro", sans-serif;
-            color: rgba(0, 0, 0, 0.7);
+            color: rgba(0, 0, 0, 0.8);
             border: none;
             background-color: #f8f8f8;
             width: 100%;
@@ -147,12 +166,22 @@
             border-radius: 10px;
             padding: 0 13px;
             margin-top: 12px;
+            outline: none;
+
+            @include mq($desktop-sm) {
+              font-size: 1rem;
+              height: 52px;
+            }
 
             &::placeholder {
               font-size: 0.875rem;
               font-weight: 300;
               font-family: "Readex Pro", sans-serif;
               color: rgba(0, 0, 0, 0.4);
+
+              @include mq($desktop-sm) {
+                font-size: 1rem;
+              }
             }
           }
 
@@ -164,53 +193,45 @@
             border-radius: 10px;
             padding: 13px;
             resize: none;
-            color: rgba(0, 0, 0, 0.7);
+            color: rgba(0, 0, 0, 0.8);
             font-size: 0.875rem;
             font-weight: 300;
             font-family: "Readex Pro", sans-serif;
             margin-top: 12px;
+            outline: none;
+
+            @include mq($desktop-sm) {
+              font-size: 1rem;
+            }
 
             &::placeholder {
               font-size: 0.875rem;
               font-weight: 300;
               font-family: "Readex Pro", sans-serif;
               color: rgba(0, 0, 0, 0.4);
+
+              @include mq($desktop-sm) {
+                font-size: 1rem;
+              }
             }
           }
 
           .colour-button {
-            height: 24px;
-            width: 24px;
-            background-color: red;
+            height: 25px;
+            width: 25px;
             border-radius: 6px;
             margin-right: 8px;
+            cursor: pointer;
+            transition: 0.3s background-color ease;
 
-            &.orange {
-              background-color: $orange;
+            @include mq($desktop-sm) {
+              height: 27px;
+              width: 27px;
+              margin-right: 10px;
             }
 
-            &.peach {
-              background-color: $peach;
-            }
-
-            &.lime {
-              background-color: $lime;
-            }
-
-            &.blue {
-              background-color: $blue;
-            }
-
-            &.purple {
-              background-color: $purple;
-            }
-
-            &.pink {
-              background-color: $pink;
-            }
-
-            &.grey {
-              background-color: $grey;
+            &.selected {
+              outline: 2px solid rgba(0, 0, 0, 0.7);
             }
           }
         }
