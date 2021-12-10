@@ -56,15 +56,18 @@ p {
   font-weight: 300;
   font-family: "Readex Pro", sans-serif;
   line-height: 1.25;
+  margin: 12px 0;
 
   @include mq($mobile-lg) {
     font-size: 0.95rem;
     line-height: 1.32;
+    margin: 15px 0;
   }
 
   &.card-date {
     font-weight: 400;
     font-size: 0.85rem;
+    margin: 0;
 
     @include mq($desktop-sm) {
       font-size: 0.95rem;

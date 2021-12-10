@@ -53,11 +53,11 @@
         }
       }
 
-      &-description p {
+      &-description {
         margin: 15px 0 20px 0;
 
         @include mq($mobile-lg) {
-          margin: 20px 0;
+          margin: 25px 0;
         }
       }
     }
