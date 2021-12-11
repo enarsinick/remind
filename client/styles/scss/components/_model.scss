@@ -12,6 +12,7 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
   z-index: 2;
+  display: none;
 
   &-wrapper {
     height: 100%;
@@ -26,6 +27,7 @@
       max-width: 500px;
       padding: 20px 22px 25px 22px;
       border-radius: 15px;
+      background-color: white; // temp
 
       @include mq($mobile-lg) {
         padding: 30px;
@@ -42,6 +44,7 @@
           border-radius: 100%;
           width: 35px;
           height: 35px;
+          cursor: pointer;
         }
       }
 
@@ -78,6 +81,7 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
   z-index: 2;
+  display: none;
 
   &-wrapper {
     height: 100%;

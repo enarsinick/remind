@@ -37,6 +37,7 @@ h3 {
   font-weight: 400;
   font-family: "Readex Pro", sans-serif;
   line-height: 1.25;
+  pointer-events: none;
 
   @include mq($tablet-mq) {
     font-size: 1.1rem;
@@ -68,6 +69,7 @@ p {
     font-weight: 400;
     font-size: 0.85rem;
     margin: 0;
+    pointer-events: none;
 
     @include mq($desktop-sm) {
       font-size: 0.95rem;
