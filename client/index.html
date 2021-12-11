@@ -12,7 +12,7 @@
     <header class="nav-header-container">
       <nav>
         <img class="logo" src="./src/logo.svg" alt="Logo" />
-        <div class="create-icon-container">
+        <div class="create-icon-container" id="create-note">
           <img src="./src/Group 12.svg" />
         </div>
       </nav>
@@ -20,12 +20,12 @@
     <!-- Main Content -->
     <main>
       <!-- View Model window overlay -->
-      <!-- <div class="model">
+      <div class="model">
         <div class="model-wrapper">
           <div class="model-wrapper-window">
             <div class="model-wrapper-window-header">
               <p class="card-date">4th December 2021</p>
-              <img src="./src/exit.svg" />
+              <img id="exit-view-model" src="./src/exit.svg" />
             </div>
             <div class="model-wrapper-window-title">
               <h2 class="model-title">
@@ -46,13 +46,13 @@
                 commodo dui.
               </p>
             </div>
-            <div class="model-button">
+            <div id="edit" class="model-button">
               <p>Edit</p>
               <img src="src/arrow.svg" />
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
       <!-- Edit/Create Model Window -->
       <div class="create-model">
@@ -62,7 +62,7 @@
               <h3>Add a note</h3>
               <div>
                 <img src="./src/delete.svg" />
-                <img src="./src/exit.svg" />
+                <img id="exit-create-window" src="./src/exit.svg" />
               </div>
             </div>
             <div class="create-model-wrapper-window-form">
@@ -87,7 +87,7 @@
                   <div class="colour-button colour-pink"></div>
                   <div class="colour-button colour-grey"></div>
                 </fieldset>
-                <div class="model-button">
+                <div id="create" class="model-button">
                   <p>Create</p>
                   <img src="src/arrow.svg" />
                 </div>
@@ -99,7 +99,7 @@
 
       <h1 class="main-header">Notes</h1>
       <section class="grid-container">
-        <article class="card grid-item colour-orange">
+        <article data-colour="orange" class="card grid-item colour-orange">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
@@ -111,7 +111,7 @@
             </div>
           </div>
         </article>
-        <article class="card grid-item colour-peach">
+        <article data-colour="peach" class="card grid-item colour-peach">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
@@ -123,7 +123,7 @@
             </div>
           </div>
         </article>
-        <article class="card grid-item colour-lime">
+        <article data-colour="lime" class="card grid-item colour-lime">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
@@ -135,7 +135,7 @@
             </div>
           </div>
         </article>
-        <article class="card grid-item colour-blue">
+        <article data-colour="blue" class="card grid-item colour-blue">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
@@ -147,7 +147,7 @@
             </div>
           </div>
         </article>
-        <article class="card grid-item colour-purple">
+        <article data-colour="purple" class="card grid-item colour-purple">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
@@ -159,7 +159,7 @@
             </div>
           </div>
         </article>
-        <article class="card grid-item colour-pink">
+        <article data-colour="pink" class="card grid-item colour-pink">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
@@ -171,7 +171,7 @@
             </div>
           </div>
         </article>
-        <article class="card grid-item colour-grey">
+        <article data-colour="orange" class="card grid-item colour-grey">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
@@ -183,7 +183,7 @@
             </div>
           </div>
         </article>
-        <article class="card grid-item colour-orange">
+        <article data-colour="orange" class="card grid-item colour-orange">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
@@ -195,7 +195,7 @@
             </div>
           </div>
         </article>
-        <article class="card grid-item colour-peach">
+        <article data-colour="peach" class="card grid-item colour-peach">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
@@ -207,7 +207,7 @@
             </div>
           </div>
         </article>
-        <article class="card grid-item colour-lime">
+        <article data-colour="lime" class="card grid-item colour-lime">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
@@ -219,7 +219,7 @@
             </div>
           </div>
         </article>
-        <article class="card grid-item colour-blue">
+        <article data-colour="blue" class="card grid-item colour-blue">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
@@ -231,7 +231,7 @@
             </div>
           </div>
         </article>
-        <article class="card grid-item colour-purple">
+        <article data-colour="purple" class="card grid-item colour-purple">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
@@ -243,7 +243,7 @@
             </div>
           </div>
         </article>
-        <article class="card grid-item colour-pink">
+        <article data-colour="pink" class="card grid-item colour-pink">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
@@ -255,7 +255,7 @@
             </div>
           </div>
         </article>
-        <article class="card grid-item colour-grey">
+        <article data-colour="orange" class="card grid-item colour-grey">
           <h3>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et un
             carabitur mattis sapien dui.
