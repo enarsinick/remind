@@ -62,6 +62,7 @@
         font-weight: 300;
         font-family: "Readex Pro", sans-serif;
         line-height: 1.25;
+        word-wrap: break-word;
 
         @include mq($mobile-lg) {
           margin: 25px 0;
