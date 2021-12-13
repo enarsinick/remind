@@ -45,4 +45,8 @@ public class NoteServiceDB implements NoteService {
 		return this.repo.save(existing);
 	}
 
+	@Override
+	public void delete(int id) {
+		this.repo.deleteById(id);
+	}
 }
