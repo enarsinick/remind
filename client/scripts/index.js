@@ -8,6 +8,67 @@ const cardColours = ["colour-orange",
                      "colour-pink", 
                      "colour-grey"];
 
+
+/////////////////////////////////////////////////////////////////////
+// API Requests
+/////////////////////////////////////////////////////////////////////
+
+// Get all notes from database
+axios.get("http://localhost:8080/getAll")
+     .then(response => {
+        const notes = response.data;
+        const gridContainer = document.querySelector(".grid-container");
+
+        notes.forEach(note => {
+            // build card element
+            const card = document.createElement("article");
+            card.classList.add("card", "grid-item");
+            card.setAttribute("id", "card");
+            card.style.backgroundColor = note.colour;
+            card.setAttribute("data-id", note.id);
+
+            // Add event listener to open view note window
+            card.addEventListener('click', function(e) {
+                if (e.target.classList.contains("card")) {
+                    viewModel.firstElementChild.firstElementChild.style.backgroundColor = note.colour;
+                    viewModel.style.display = "block";
+                }
+            })
+
+            // Card header
+            const h3 = document.createElement("h3");
+            h3.innerText = note.title;
+
+            // card info and button section
+            const cardInfoCont = document.createElement("div");
+            cardInfoCont.classList.add("card-info-container");
+            const date = document.createElement("p");
+            date.classList.add("card-date");
+            date.innerText = note.date;
+
+            const cardButtonCont = document.createElement("div");
+            cardButtonCont.classList.add("card-options-container");
+            const icon = document.createElement("img");
+            icon.src = "./src/edit1.svg";
+
+            // When edit icon is clicked on card, open the edit window for that card
+            cardButtonCont.addEventListener('click', function(e) {
+                createModel.style.display = "block";
+            });
+
+            // Add elements to card
+            cardButtonCont.appendChild(icon);
+            cardInfoCont.appendChild(date);
+            cardInfoCont.appendChild(cardButtonCont);
+            card.appendChild(h3);
+            card.appendChild(cardInfoCont);
+
+            gridContainer.appendChild(card);
+        })
+        
+     })
+     .catch(err => console.log(err));
+
 /////////////////////////////////////////////////////////////////////
 // Element Selectors
 /////////////////////////////////////////////////////////////////////
@@ -16,12 +77,12 @@ const createButton = document.querySelector("#create-note");
 const createModel = document.querySelector(".create-model");
 const exitCreateButton = document.querySelector("#exit-create-window")
 
-const card = document.querySelectorAll('.card'); 
 const viewModel = document.querySelector('.model');
 const exitViewButton = document.querySelector('#exit-view-model');
-const cardEditButtons = document.querySelectorAll('.card-options-container');
 
 const editButton = document.querySelector('#edit');
+
+
 
 /////////////////////////////////////////////////////////////////////
 // Event Listeners
@@ -45,21 +106,6 @@ createModel.addEventListener('click', function(e) {
     } 
 });
 
-// Opens view window when card clicked and adds correct colour to model window bg
-card.forEach(element => {
-    element.addEventListener('click', function(e) {
-        if (e.target.classList.contains("card")) {
-            viewModel.style.display = "block";
-        }
-        // cardColours.forEach(element => {
-        //     if (e.target.classList.contains(element)) {
-        //         viewModel.firstElementChild.firstElementChild.classList.add(element);
-        //         viewModel.style.display = "block";
-        //     }
-        // });
-    });
-});
-
 // Closes view window when clicking exit icon
 exitViewButton.addEventListener('click', function() {
     viewModel.style.display = "none";
@@ -78,9 +124,5 @@ editButton.addEventListener('click', function() {
     createModel.style.display = "block";
 }); 
 
-// When edit icon is clicked on card, open the edit window for that card
-cardEditButtons.forEach(element => {
-    element.addEventListener('click', function(e) {
-        createModel.style.display = "block";
-    });
-});
+
+
