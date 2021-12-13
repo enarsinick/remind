@@ -54,14 +54,13 @@
         </div>
       </div>
 
-      <!-- Edit/Create Model Window -->
+      <!-- Create Model Window -->
       <div class="create-model">
         <div class="create-model-wrapper">
           <div class="create-model-wrapper-window">
             <div class="create-model-wrapper-window-header">
               <h3>Add a note</h3>
               <div>
-                <img src="./src/delete.svg" />
                 <img id="exit-create-window" src="./src/exit.svg" />
               </div>
             </div>
@@ -115,6 +114,75 @@
                 </fieldset>
                 <div id="create" class="model-button">
                   <p>Create</p>
+                  <img src="src/arrow.svg" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit Model Window -->
+      <div id="edit-model" class="create-model">
+        <div class="create-model-wrapper">
+          <div class="create-model-wrapper-window">
+            <div class="create-model-wrapper-window-header">
+              <h3>Edit a note</h3>
+              <div>
+                <img src="./src/delete.svg" />
+                <img id="exit-edit-window" src="./src/exit.svg" />
+              </div>
+            </div>
+            <div class="create-model-wrapper-window-form">
+              <form>
+                <fieldset>
+                  <label>Title</label>
+                  <input
+                    id="edit-title-field"
+                    type="text"
+                    placeholder="Write your title here"
+                  />
+                </fieldset>
+                <fieldset>
+                  <label>Description</label>
+                  <textarea
+                    id="edit-description-field"
+                    placeholder="Write your description here"
+                  ></textarea>
+                </fieldset>
+                <fieldset>
+                  <label>Colour</label>
+                  <div
+                    data-value="#FEC971"
+                    class="colour-button colour-orange"
+                  ></div>
+                  <div
+                    data-value="#FE9B72"
+                    class="colour-button colour-peach"
+                  ></div>
+                  <div
+                    data-value="#E3EF8E"
+                    class="colour-button colour-lime"
+                  ></div>
+                  <div
+                    data-value="#00D4FE"
+                    class="colour-button colour-blue"
+                  ></div>
+                  <div
+                    data-value="#B593FD"
+                    class="colour-button colour-purple"
+                  ></div>
+                  <div
+                    data-value="#FBD5FE"
+                    class="colour-button colour-pink"
+                  ></div>
+                  <div
+                    data-value="#CCD4D7"
+                    class="colour-button colour-grey"
+                  ></div>
+                </fieldset>
+                <div id="edit-note-submit" class="model-button">
+                  <p>Edit</p>
                   <img src="src/arrow.svg" />
                 </div>
               </form>

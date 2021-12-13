@@ -88,16 +88,23 @@ const displayAllNotes = () => {
 // Element Selectors
 /////////////////////////////////////////////////////////////////////
 
+// Creating
 const createButton = document.querySelector("#create-note");
 const createModel = document.querySelector(".create-model");
 const exitCreateButton = document.querySelector("#exit-create-window")
 const createModelButton = document.querySelector("#create");
 
+// Viewing
 const viewModel = document.querySelector('.model');
 const exitViewButton = document.querySelector('#exit-view-model');
-
 const editButton = document.querySelector('#edit');
 
+// Editing
+const editModel = document.querySelector('#edit-model');
+const exitEditButton = document.querySelector("#exit-edit-window");
+const editSubmitButton = document.querySelector('#edit-note-submit');
+
+// Others
 const colours = document.querySelectorAll(".colour-button");
 
 
@@ -112,15 +119,27 @@ createButton.addEventListener('click', function() {
     createModel.style.display = "block";
 });
 
-// Closes create/edit model window with exit icon
+// Closes create model window with exit icon
 exitCreateButton.addEventListener('click', function() {
     createModel.style.display = "none";
+});
+
+// Closes edit model window with exit icon
+exitEditButton.addEventListener('click', function() {
+    editModel.style.display = "none";
 });
 
 // Closes create model if black overlay is clicked
 createModel.addEventListener('click', function(e) {
     if (e.target.className === "create-model-wrapper") {
         createModel.style.display = "none";
+    } 
+});
+
+// Closes edit model if black overlay is clicked
+editModel.addEventListener('click', function(e) {
+    if (e.target.className === "create-model-wrapper") {
+        editModel.style.display = "none";
     } 
 });
 
@@ -136,10 +155,59 @@ viewModel.addEventListener('click', function(e) {
     } 
 });
 
-// When edit button is clicked, open create/edit window and close view window
-editButton.addEventListener('click', function() {
+// When edit button is clicked, open edit window and close view window
+// Plus adds in note data to fields
+editButton.addEventListener('click', function(e) {
     viewModel.style.display = "none";
-    createModel.style.display = "block";
+    editModel.style.display = "block";
+    const id = e.target.getAttribute("data-id");
+
+    // Get note info and add to edit model
+    axios.get(`http://localhost:8080/get/${id}`)
+         .then(response => {
+            const note = response.data;
+            document.querySelector("#edit-title-field").value = note.title;
+            document.querySelector("#edit-description-field").value = note.description;0
+            colours.forEach(col => {
+                if (col.getAttribute("data-value") === note.colour) {
+                    colours.forEach(element => element.classList.remove("selected"));
+                    col.classList.add("selected");
+                }
+            });
+            editSubmitButton.setAttribute("data-id", id);
+         })
+         .catch(err => console.log(err));
+}); 
+
+// When the user clicks the submit button on the edit model
+// The information is sent to the DB
+editSubmitButton.addEventListener('click', function(e) {
+    const id = e.target.getAttribute("data-id");
+
+    // Get info from fields and build object
+    let title = document.querySelector("#edit-title-field").value;
+    let description = document.querySelector("#edit-description-field").value;
+    const date = new Date();
+    let chosenColour;
+
+    colours.forEach(col => {
+        if (col.classList.contains("selected")) {
+            chosenColour = col.getAttribute("data-value");
+        }
+    })
+
+    const data = {
+        "title": title, 
+        "description": description,
+        "colour": chosenColour,
+        "date": date.toLocaleDateString("en-GB", {year: "numeric", month: "long", day: "numeric"})
+    }
+
+    axios.put(`http://localhost:8080/update/${id}`, data)
+         .then(response => console.log(response))
+         .catch(err => console.log(err));
+    
+    location.reload();
 }); 
 
 // Allow users to select colour of card when creating new note

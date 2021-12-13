@@ -14,12 +14,14 @@
     font-size: 1rem;
     font-weight: 500;
     font-family: "Readex Pro", sans-serif;
+    pointer-events: none;
   }
 
   img {
     margin-left: 8px;
     width: 22px;
     transition: 0.3s all ease;
+    pointer-events: none;
   }
 
   @include mq($mobile-lg) {
