@@ -33,6 +33,18 @@ const displayAllNotes = () => {
                 if (e.target.classList.contains("card")) {
                     viewModel.firstElementChild.firstElementChild.style.backgroundColor = note.colour;
                     viewModel.style.display = "block";
+                    const id = e.target.getAttribute("data-id");
+                    
+                    // Build View Model Window
+                    axios.get(`http://localhost:8080/get/${id}`)
+                         .then(response => {
+                             const note = response.data;
+                             document.querySelector('.model-title').innerText = note.title;
+                             document.querySelector('#model-date').innerText = note.date;
+                             document.querySelector('.model-wrapper-window-description').innerText = note.description;
+                             document.querySelector('#edit').setAttribute("data-id", id);
+                         })
+                         .catch(err => console.log(err));
                 }
             })
 
