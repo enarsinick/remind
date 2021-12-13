@@ -30,4 +30,9 @@ public class NoteServiceDB implements NoteService {
 		return this.repo.findAll();
 	}
 
+	@Override
+	public Note getById(int id) {
+		return this.repo.findById(id).get();
+	}
+
 }

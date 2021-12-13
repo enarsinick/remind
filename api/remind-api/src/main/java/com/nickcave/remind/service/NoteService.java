@@ -10,4 +10,6 @@ public interface NoteService {
 	
 	public List<Note> getAll();
 	
+	public Note getById(int id);
+	
 }
