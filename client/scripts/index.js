@@ -13,12 +13,13 @@ const cardColours = ["colour-orange",
 // API Requests
 /////////////////////////////////////////////////////////////////////
 
-// Get all notes from database
-axios.get("http://localhost:8080/getAll")
+// Get all notes from database and display on page
+const displayAllNotes = () => {
+    axios.get("http://localhost:8080/getAll")
      .then(response => {
         const notes = response.data;
         const gridContainer = document.querySelector(".grid-container");
-
+        gridContainer.innerHTML = "";
         notes.forEach(note => {
             // build card element
             const card = document.createElement("article");
@@ -68,6 +69,8 @@ axios.get("http://localhost:8080/getAll")
         
      })
      .catch(err => console.log(err));
+}
+
 
 /////////////////////////////////////////////////////////////////////
 // Element Selectors
@@ -76,11 +79,14 @@ axios.get("http://localhost:8080/getAll")
 const createButton = document.querySelector("#create-note");
 const createModel = document.querySelector(".create-model");
 const exitCreateButton = document.querySelector("#exit-create-window")
+const createModelButton = document.querySelector("#create");
 
 const viewModel = document.querySelector('.model');
 const exitViewButton = document.querySelector('#exit-view-model');
 
 const editButton = document.querySelector('#edit');
+
+const colours = document.querySelectorAll(".colour-button");
 
 
 
@@ -124,5 +130,46 @@ editButton.addEventListener('click', function() {
     createModel.style.display = "block";
 }); 
 
+// Allow users to select colour of card when creating new note
+colours.forEach(col => {
+    col.addEventListener('click', (e) => {
+        colours.forEach(element => {
+            element.classList.remove("selected");
+        })
+        e.target.classList.add("selected");
+    });
+})
+
+// Package all form data and send to API when user clicks create button
+createModelButton.addEventListener('click', () => {
+    let title = document.querySelector("#title-field").value;
+    let description = document.querySelector("#description-field").value;
+    const date = new Date();
+    let chosenColour;
+
+    colours.forEach(col => {
+        if (col.classList.contains("selected")) {
+            chosenColour = col.getAttribute("data-value");
+        }
+    })
+
+    const data = {
+        "title": title, 
+        "description": description,
+        "colour": chosenColour,
+        "date": date.toLocaleDateString("en-GB", {year: "numeric", month: "long", day: "numeric"})
+    }
+
+    axios.post("http://localhost:8080/create", data)
+         .then(response => console.log(response))
+         .catch(err => console.log(err));
+
+    location.reload();
+
+});
 
 
+
+
+// call functions
+displayAllNotes();
