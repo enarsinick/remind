@@ -12,4 +12,6 @@ public interface NoteService {
 	
 	public Note getById(int id);
 	
+	public Note updateNote(int id, Note note);
+	
 }
