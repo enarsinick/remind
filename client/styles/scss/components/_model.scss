@@ -58,9 +58,15 @@
 
       &-description {
         margin: 15px 0 20px 0;
+        font-size: 0.875rem;
+        font-weight: 300;
+        font-family: "Readex Pro", sans-serif;
+        line-height: 1.25;
 
         @include mq($mobile-lg) {
           margin: 25px 0;
+          font-size: 0.95rem;
+          line-height: 1.32;
         }
       }
     }
