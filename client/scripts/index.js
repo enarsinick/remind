@@ -176,7 +176,9 @@ createModelButton.addEventListener('click', () => {
          .then(response => console.log(response))
          .catch(err => console.log(err));
 
-    location.reload();
+    displayAllNotes();
+    window.location.reload();
+    // createModel.style.display = "none";
 
 });
 

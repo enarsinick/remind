@@ -4,6 +4,6 @@ CREATE TABLE `note` (
 	`id` INT PRIMARY KEY AUTO_INCREMENT, 
 	`colour` VARCHAR(255) NOT NULL, 
 	`date` VARCHAR(255) NOT NULL, 
-	`description` VARCHAR(255) NOT NULL, 
+	`description` VARCHAR(10000) NOT NULL, 
 	`title` VARCHAR(255) NOT NULL
 );
