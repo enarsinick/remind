@@ -1,5 +1,7 @@
 package com.nickcave.remind.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,11 @@ public class NoteServiceDB implements NoteService {
 	@Override
 	public Note createNote(Note note) {
 		return this.repo.save(note);
+	}
+
+	@Override
+	public List<Note> getAll() {
+		return this.repo.findAll();
 	}
 
 }
