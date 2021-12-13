@@ -35,4 +35,14 @@ public class NoteServiceDB implements NoteService {
 		return this.repo.findById(id).get();
 	}
 
+	@Override
+	public Note updateNote(int id, Note note) {
+		Note existing = this.repo.findById(id).get();
+		existing.setTitle(note.getTitle());
+		existing.setColour(note.getColour());
+		existing.setDate(note.getDate());
+		existing.setDescription(note.getDescription());
+		return this.repo.save(existing);
+	}
+
 }
