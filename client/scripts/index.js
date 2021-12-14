@@ -61,12 +61,31 @@ const displayAllNotes = () => {
 
             const cardButtonCont = document.createElement("div");
             cardButtonCont.classList.add("card-options-container");
+            cardButtonCont.setAttribute("data-id", note.id);
             const icon = document.createElement("img");
             icon.src = "./src/edit1.svg";
 
             // When edit icon is clicked on card, open the edit window for that card
             cardButtonCont.addEventListener('click', function(e) {
-                createModel.style.display = "block";
+                editModel.style.display = "block";
+                const id = e.target.getAttribute("data-id");
+
+                // Get note info and add to edit model
+                axios.get(`http://localhost:8080/get/${id}`)
+                    .then(response => {
+                        const note = response.data;
+                        deleteButton.setAttribute("data-id", note.id);
+                        document.querySelector("#edit-title-field").value = note.title;
+                        document.querySelector("#edit-description-field").value = note.description;0
+                        colours.forEach(col => {
+                            if (col.getAttribute("data-value") === note.colour) {
+                                colours.forEach(element => element.classList.remove("selected"));
+                                col.classList.add("selected");
+                            }
+                        });
+                        editSubmitButton.setAttribute("data-id", id);
+                    })
+                    .catch(err => console.log(err));
             });
 
             // Add elements to card
@@ -103,9 +122,13 @@ const editButton = document.querySelector('#edit');
 const editModel = document.querySelector('#edit-model');
 const exitEditButton = document.querySelector("#exit-edit-window");
 const editSubmitButton = document.querySelector('#edit-note-submit');
+const deleteButton = document.querySelector("#delete");
 
 // Others
 const colours = document.querySelectorAll(".colour-button");
+
+// Card
+const pencilIcon = document.querySelector(".card-options-container");
 
 
 
@@ -166,6 +189,7 @@ editButton.addEventListener('click', function(e) {
     axios.get(`http://localhost:8080/get/${id}`)
          .then(response => {
             const note = response.data;
+            deleteButton.setAttribute("data-id", note.id);
             document.querySelector("#edit-title-field").value = note.title;
             document.querySelector("#edit-description-field").value = note.description;0
             colours.forEach(col => {
@@ -210,6 +234,16 @@ editSubmitButton.addEventListener('click', function(e) {
     location.reload();
 }); 
 
+
+// Delete a note from the DB
+deleteButton.addEventListener('click', e => {
+    const id = e.target.getAttribute("data-id");
+    axios.delete(`http://localhost:8080/delete/${id}`)
+         .then(response => console.log(response))
+         .catch(err => console.log(err));
+    location.reload();
+});
+
 // Allow users to select colour of card when creating new note
 colours.forEach(col => {
     col.addEventListener('click', (e) => {
@@ -246,7 +280,6 @@ createModelButton.addEventListener('click', () => {
 
     displayAllNotes();
     window.location.reload();
-    // createModel.style.display = "none";
 
 });
 
