@@ -104,7 +104,7 @@ public class Note {
 
 	@Override
 	public String toString() {
-		return "Note [Id=" + Id + ", title=" + title + ", description=" + description + ", date=" + date + ", colour="
+		return "Note: Id=" + Id + ", title=" + title + ", description=" + description + ", date=" + date + ", colour="
 				+ colour + "]";
 	}
 	
