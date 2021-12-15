@@ -49,6 +49,7 @@ export default () => {
 
             // When edit icon is clicked on card, open the edit window for that card
             cardButtonCont.addEventListener('click', function(e) {
+                document.querySelector(".edit-form-error").style.display = "none";
                 editModel.style.display = "block";
                 const id = e.target.getAttribute("data-id");
 
