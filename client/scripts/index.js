@@ -14,7 +14,11 @@ import insertIntoEditModel from "./editModel.js";
 /////////////////////////////////////////////////////////////////////
 
 // Open create model window
-createButton.addEventListener('click', () => { showHide(createModel, "block") });
+createButton.addEventListener('click', () => { 
+    showHide(createModel, "block") 
+    // Remove form error message if visible 
+    document.querySelector(".form-error").style.display = "none";
+});
 
 // Closes create model window with exit icon
 exitCreateButton.addEventListener('click', function() { showHide(createModel, "none") });
@@ -43,6 +47,7 @@ viewModel.addEventListener('click', function(e) {
 // When edit button is clicked, open edit window and close view window
 // Plus adds in note data to fields
 editButton.addEventListener('click', function(e) {
+    document.querySelector(".edit-form-error").style.display = "none";
     viewModel.style.display = "none";
     editModel.style.display = "block";
     const id = e.target.getAttribute("data-id");
@@ -56,27 +61,37 @@ editButton.addEventListener('click', function(e) {
 // When the user clicks the submit button on the edit model
 // The information is sent to the DB
 editSubmitButton.addEventListener('click', function(e) {
-    const id = e.target.getAttribute("data-id");
-    let chosenColour;
 
+    // Remove form error message if visible 
+    document.querySelector(".edit-form-error").style.display = "none";
+
+    // Get form data
+    const title = editTitleField.value;
+    const desc = editDescField.value;
+    let chosenColour;
     colours.forEach(col => {
         if (col.classList.contains("selected")) {
             chosenColour = col.getAttribute("data-value");
         }
     })
-
-    const data = {
-        "title": editTitleField.value, 
-        "description": editDescField.value,
-        "colour": chosenColour,
-        "date": new Date().toLocaleDateString("en-GB", {year: "numeric", month: "long", day: "numeric"})
-    }
-
-    axios.put(`http://localhost:8080/update/${id}`, data)
-         .then(response => console.log(response))
-         .catch(err => console.log(err));
+    const id = e.target.getAttribute("data-id");
     
-    location.reload();
+    // Check if form has been filled in or not
+    if (title == null || title == "" || desc == "" || desc == null || chosenColour == null || chosenColour == "") {
+        document.querySelector(".edit-form-error").style.display = "flex";
+    } else {
+        document.querySelector(".edit-form-error").style.display = "none";
+        const data = {
+            "title": title, 
+            "description": desc,
+            "colour": chosenColour,
+            "date": new Date().toLocaleDateString("en-GB", {year: "numeric", month: "long", day: "numeric"})
+        }
+        axios.put(`http://localhost:8080/update/${id}`, data)
+             .then(response => console.log(response))
+             .catch(err => console.log(err));
+        location.reload();
+    }
 }); 
 
 
@@ -101,25 +116,32 @@ colours.forEach(col => {
 
 // Package all form data and send to API when user clicks create button
 createModelButton.addEventListener('click', () => {
+    // Get form data
+    const title = createTitleField.value;
+    const desc = createDescField.value;
     let chosenColour;
     colours.forEach(col => {
         if (col.classList.contains("selected")) {
             chosenColour = col.getAttribute("data-value");
-        }
+        }    
     })
 
-    const data = {
-        "title": createTitleField.value, 
-        "description": createDescField.value,
-        "colour": chosenColour,
-        "date": new Date().toLocaleDateString("en-GB", {year: "numeric", month: "long", day: "numeric"})
+    // Check if form has been filled in or not
+    if (title == null || title == "" || desc == "" || desc == null || chosenColour == null || chosenColour == "") {
+        document.querySelector(".form-error").style.display = "flex";
+    } else {
+        document.querySelector(".form-error").style.display = "none";
+        const data = {
+            "title": title, 
+            "description": desc,
+            "colour": chosenColour,
+            "date": new Date().toLocaleDateString("en-GB", {year: "numeric", month: "long", day: "numeric"})
+        }
+        axios.post("http://localhost:8080/create", data)
+            .then(response => console.log(response))
+            .catch(err => console.log(err));
+        window.location.reload();
     }
-
-    axios.post("http://localhost:8080/create", data)
-         .then(response => console.log(response))
-         .catch(err => console.log(err));
-
-    window.location.reload();
 });
 
 // display all notes to page
