@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/css/index.min.css" />
+    <title>Remind | Note Taking App</title>
+  </head>
+  <body>
+    <!-- Header/Nav -->
+    <header class="nav-header-container">
+      <nav>
+        <img class="logo" src="./src/logo.svg" alt="Logo" />
+        <div class="create-icon-container" id="create-note">
+          <img src="./src/Group 12.svg" />
+        </div>
+      </nav>
+    </header>
+    <!-- Main Content -->
+    <main>
+      <!-- View Model window overlay -->
+      <div class="model">
+        <div class="model-wrapper">
+          <div class="model-wrapper-window">
+            <div class="model-wrapper-window-header">
+              <p id="model-date" class="card-date">4th December 2021</p>
+              <img id="exit-view-model" src="./src/exit.svg" />
+            </div>
+            <div class="model-wrapper-window-title">
+              <h2 class="model-title">
+                Go to the shop and pick up some milk and bread.
+              </h2>
+            </div>
+            <div class="model-wrapper-window-description">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Curabitur mattis sapien dui, a viverra nunc lacinia sed. In
+                tempor nunc sed euismod rutrum. Nulla et eros eu nisi luctus
+                pretium id a enim.
+              </p>
+              <p>
+                Sed erat dui, malesuada vitae urna vel, sodales vehicula ex.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                ornare tristique purus, vel dapibus diam auctor vel. Sed at
+                commodo dui.
+              </p>
+            </div>
+
+            <div id="edit" class="model-button">
+              <p>Edit</p>
+              <img src="src/arrow.svg" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create Model Window -->
+      <div class="create-model">
+        <div class="create-model-wrapper">
+          <div class="create-model-wrapper-window">
+            <div class="create-model-wrapper-window-header">
+              <h3>Add a note</h3>
+              <div>
+                <img id="exit-create-window" src="./src/exit.svg" />
+              </div>
+            </div>
+            <div class="create-model-wrapper-window-form">
+              <form>
+                <fieldset>
+                  <label>Title</label>
+                  <input
+                    id="title-field"
+                    type="text"
+                    placeholder="Write your title here"
+                  />
+                </fieldset>
+                <fieldset>
+                  <label>Description</label>
+                  <textarea
+                    id="description-field"
+                    placeholder="Write your description here"
+                  ></textarea>
+                </fieldset>
+                <fieldset>
+                  <label>Colour</label>
+                  <div
+                    data-value="#FEC971"
+                    class="colour-button colour-orange"
+                  ></div>
+                  <div
+                    data-value="#FE9B72"
+                    class="colour-button colour-peach"
+                  ></div>
+                  <div
+                    data-value="#E3EF8E"
+                    class="colour-button colour-lime"
+                  ></div>
+                  <div
+                    data-value="#00D4FE"
+                    class="colour-button colour-blue"
+                  ></div>
+                  <div
+                    data-value="#B593FD"
+                    class="colour-button colour-purple"
+                  ></div>
+                  <div
+                    data-value="#FBD5FE"
+                    class="colour-button colour-pink"
+                  ></div>
+                  <div
+                    data-value="#CCD4D7"
+                    class="colour-button colour-grey"
+                  ></div>
+                </fieldset>
+                <div class="form-error">Please fill in all fields!</div>
+                <div id="create" class="model-button">
+                  <p>Create</p>
+                  <img src="src/arrow.svg" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit Model Window -->
+      <div id="edit-model" class="create-model">
+        <div class="create-model-wrapper">
+          <div class="create-model-wrapper-window">
+            <div class="create-model-wrapper-window-header">
+              <h3>Edit a note</h3>
+              <div>
+                <img id="delete" src="./src/delete.svg" />
+                <img id="exit-edit-window" src="./src/exit.svg" />
+              </div>
+            </div>
+            <div class="create-model-wrapper-window-form">
+              <form>
+                <fieldset>
+                  <label>Title</label>
+                  <input
+                    id="edit-title-field"
+                    type="text"
+                    placeholder="Write your title here"
+                  />
+                </fieldset>
+                <fieldset>
+                  <label>Description</label>
+                  <textarea
+                    id="edit-description-field"
+                    placeholder="Write your description here"
+                  ></textarea>
+                </fieldset>
+                <fieldset>
+                  <label>Colour</label>
+                  <div
+                    data-value="#FEC971"
+                    class="colour-button colour-orange"
+                  ></div>
+                  <div
+                    data-value="#FE9B72"
+                    class="colour-button colour-peach"
+                  ></div>
+                  <div
+                    data-value="#E3EF8E"
+                    class="colour-button colour-lime"
+                  ></div>
+                  <div
+                    data-value="#00D4FE"
+                    class="colour-button colour-blue"
+                  ></div>
+                  <div
+                    data-value="#B593FD"
+                    class="colour-button colour-purple"
+                  ></div>
+                  <div
+                    data-value="#FBD5FE"
+                    class="colour-button colour-pink"
+                  ></div>
+                  <div
+                    data-value="#CCD4D7"
+                    class="colour-button colour-grey"
+                  ></div>
+                </fieldset>
+                <div class="edit-form-error">Please fill in all fields!</div>
+                <div id="edit-note-submit" class="model-button">
+                  <p>Edit</p>
+                  <img src="src/arrow.svg" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="main-header">Notes</h1>
+      <section class="grid-container"></section>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-inner">
+        <p><a href="https://nickcave.co" target="_blank">Project by Nick</a></p>
+      </div>
+    </footer>
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
+  </body>
+</html>

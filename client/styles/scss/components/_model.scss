@@ -1,0 +1,269 @@
+///-----------------------------------------------------------------------------///
+/// Model Window - View Notes                                                   ///
+///-----------------------------------------------------------------------------///
+
+.model {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+  z-index: 2;
+  display: none;
+
+  &-wrapper {
+    height: 100%;
+    width: 100%;
+    padding: $mobile-container-padding;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-window {
+      width: 100%;
+      max-width: 500px;
+      padding: 20px 22px 25px 22px;
+      border-radius: 15px;
+      background-color: white; // temp
+
+      @include mq($mobile-lg) {
+        padding: 30px;
+      }
+
+      &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+          background-color: rgba(0, 0, 0, 0.05);
+          padding: 10px;
+          border-radius: 100%;
+          width: 35px;
+          height: 35px;
+          cursor: pointer;
+        }
+      }
+
+      &-title {
+        margin: 15px 0 0 0;
+
+        @include mq($mobile-lg) {
+          max-width: 85%;
+        }
+      }
+
+      &-description {
+        margin: 15px 0 20px 0;
+        font-size: 0.875rem;
+        font-weight: 300;
+        font-family: "Readex Pro", sans-serif;
+        line-height: 1.25;
+        word-wrap: break-word;
+
+        @include mq($mobile-lg) {
+          margin: 25px 0;
+          font-size: 0.95rem;
+          line-height: 1.32;
+        }
+      }
+    }
+  }
+}
+
+///-----------------------------------------------------------------------------///
+/// Model Window - Create/Edit Notes                                            ///
+///-----------------------------------------------------------------------------///
+
+.create-model {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+  z-index: 2;
+  display: none;
+
+  &-wrapper {
+    height: 100%;
+    width: 100%;
+    padding: $mobile-container-padding;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-window {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 15px;
+      background-color: white;
+
+      &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 78px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        padding: 0 22px;
+
+        @include mq($desktop-sm) {
+          height: 82px;
+        }
+
+        img {
+          background-color: rgba(0, 0, 0, 0.05);
+          padding: 10px;
+          border-radius: 100%;
+          width: 35px;
+          height: 35px;
+          margin-left: 5px;
+          cursor: pointer;
+          transition: 0.3s background-color ease;
+
+          @include mq($desktop-sm) {
+            width: 38px;
+            height: 38px;
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.1);
+            }
+          }
+        }
+      }
+
+      &-form {
+        padding: 25px;
+
+        fieldset {
+          display: flex;
+          flex-direction: column;
+          margin: 25px 0;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+
+          &:last-of-type {
+            flex-direction: row;
+            align-items: center;
+          }
+
+          label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: "Readex Pro", sans-serif;
+            margin-right: 15px;
+
+            @include mq($desktop-sm) {
+              font-size: 1rem;
+            }
+          }
+
+          input {
+            font-size: 0.875rem;
+            font-weight: 300;
+            font-family: "Readex Pro", sans-serif;
+            color: rgba(0, 0, 0, 0.8);
+            border: none;
+            background-color: #f8f8f8;
+            width: 100%;
+            height: 48px;
+            border-radius: 10px;
+            padding: 0 13px;
+            margin-top: 12px;
+            outline: none;
+
+            @include mq($desktop-sm) {
+              font-size: 1rem;
+              height: 52px;
+            }
+
+            &::placeholder {
+              font-size: 0.875rem;
+              font-weight: 300;
+              font-family: "Readex Pro", sans-serif;
+              color: rgba(0, 0, 0, 0.4);
+
+              @include mq($desktop-sm) {
+                font-size: 1rem;
+              }
+            }
+          }
+
+          textarea {
+            border: none;
+            min-height: 210px;
+            width: 100%;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            padding: 13px;
+            resize: none;
+            color: rgba(0, 0, 0, 0.8);
+            font-size: 0.875rem;
+            font-weight: 300;
+            font-family: "Readex Pro", sans-serif;
+            margin-top: 12px;
+            outline: none;
+
+            @include mq($desktop-sm) {
+              font-size: 1rem;
+            }
+
+            &::placeholder {
+              font-size: 0.875rem;
+              font-weight: 300;
+              font-family: "Readex Pro", sans-serif;
+              color: rgba(0, 0, 0, 0.4);
+
+              @include mq($desktop-sm) {
+                font-size: 1rem;
+              }
+            }
+          }
+
+          .colour-button {
+            height: 25px;
+            width: 25px;
+            border-radius: 6px;
+            margin-right: 8px;
+            cursor: pointer;
+            transition: 0.3s background-color ease;
+
+            @include mq($desktop-sm) {
+              height: 27px;
+              width: 27px;
+              margin-right: 10px;
+            }
+
+            &.selected {
+              outline: 2px solid rgba(0, 0, 0, 0.7);
+            }
+          }
+        }
+
+        .form-error,
+        .edit-form-error {
+          width: fit-content;
+          margin: 0 auto 20px;
+          background-color: #fde4e1;
+          color: #e6473d;
+          padding: 12px 15px;
+          border-radius: 5px;
+          // display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.875rem;
+          font-weight: 400;
+          font-family: "Readex Pro", sans-serif;
+          display: none;
+        }
+      }
+    }
+  }
+}

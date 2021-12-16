@@ -1,0 +1,76 @@
+.card {
+  // background-color: $lime; // temp
+  border-radius: $card-br;
+  padding: 22px;
+  min-height: 215px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+
+  @include mq($desktop-sm) {
+    min-height: 240px;
+    cursor: pointer;
+    transition: 0.3s background-color ease;
+
+    // &:hover {
+    //   background-color: darken($color: $lime, $amount: 10);
+    // }
+  }
+
+  @include mq($desktop-lg) {
+    min-height: 290px;
+  }
+
+  .card-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+
+    .card-options-container {
+      background-color: $icon-bg-color;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: $icon-br;
+      transition: 0.3s background-color ease;
+      transition: 0.25s transform ease;
+      cursor: pointer;
+      pointer-events: initial;
+
+      img {
+        width: 20px;
+        pointer-events: none;
+      }
+
+      @include mq($desktop-sm) {
+        &:hover {
+          transform: rotate(25deg);
+        }
+      }
+    }
+  }
+}
+
+// Create CSS styling for each bg colour
+$colours: (
+  "lime": $lime,
+  "orange": $orange,
+  "peach": $peach,
+  "blue": $blue,
+  "purple": $purple,
+  "pink": $pink,
+  "grey": $grey,
+);
+
+@each $colour, $code in $colours {
+  .colour-#{$colour} {
+    background-color: $code;
+    &:hover {
+      background-color: darken($color: $code, $amount: 8);
+    }
+  }
+}

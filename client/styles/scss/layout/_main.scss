@@ -1,0 +1,10 @@
+main {
+  padding: 0 $mobile-container-padding;
+  margin-bottom: 50px;
+  max-width: $max-width;
+  margin: 0 auto;
+
+  @include mq($desktop-lg) {
+    padding: 0;
+  }
+}
