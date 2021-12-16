@@ -3,8 +3,8 @@
 ## Nick Cave
 
 - Test coverage: **96.3%**
-- [Presentation Link](https://google.co.uk)
-- [Sprint Board](https://google.co.uk)
+- [Presentation Link](https://docs.google.com/presentation/d/1Cj2Q666Qq2zsXSHfJ9urGM2VWKbuvfSsAIKRXjYaGxM/edit?usp=sharing)
+- [Sprint Board](https://nicksgameshop.atlassian.net/jira/software/projects/REM/boards/2/roadmap?shared=&atlOrigin=eyJpIjoiYTk0N2VkNzVjM2Y0NDM1NWE2OTIzZGI3MmNmNTQ5NmMiLCJwIjoiaiJ9)
 
 ---
 
